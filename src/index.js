@@ -139,25 +139,20 @@ function storeOriginalColors() {
   originalDegreeColor = document.querySelector(".degree").style.color;
   originalWeatherAppDataColor =
     document.querySelector(".weather-app-data").style.backgroundColor;
-  originalWeatherForecastDateColor = document.querySelector(
-    ".weather-forecast-date"
-  ).style.color;
+  originalWeatherForecastDateColor =
+    document.querySelector(".weather-forecast").style.color;
 }
 
 // Function to change colors
 function changeColors() {
   // Define new colors
-  const newBodyColor = "#323643";
-  const newWeatherAppColor = "#606470";
-  const newSearchFormInputColor = "#323643";
-  const newSearchFormButtonBackgroundColor = "#EAEAEA";
-  const newSearchFormButtonColor = "#606470";
-  const newFaSolidBackgroundColor = "#EAEAEA";
-  const newFaSolidColor = "#606470";
-  const newDegreeBackgroundColor = "#EAEAEA";
-  const newDegreeColor = "#606470";
-  const newWeatherAppDataColor = "#323643";
-  const newWeatherForecastDateColor = "#EAEAEA";
+  let newBodyColor = "#323643";
+  let newWeatherAppColor = "#606470";
+  let newSearchFormInputColor = "#323643";
+  let newSearchFormButtonBackgroundColor = "#EAEAEA";
+  let newSearchFormButtonColor = "#606470";
+  let newFaSolidBackgroundColor = "#EAEAEA";
+  let newFaSolidColor = "#606470";
 
   // Apply new colors to elements
   document.body.style.background = newBodyColor;
@@ -172,12 +167,6 @@ function changeColors() {
   document.querySelector(".fa-solid").style.backgroundColor =
     newFaSolidBackgroundColor;
   document.querySelector(".fa-solid").style.color = newFaSolidColor;
-  document.querySelector(".degree").style.backgroundColor =
-    newDegreeBackgroundColor;
-  document.querySelector(".degree").style.color = newDegreeColor;
-  document.querySelector(".weather-app-data").style.backgroundColor =
-    newWeatherAppDataColor;
-  document.querySelector(".forecast").style.color = newWeatherForecastDateColor;
 }
 
 // Function to revert back to original colors
@@ -194,13 +183,6 @@ function revertColors() {
   document.querySelector(".fa-solid").style.backgroundColor =
     originalFaSolidBackgroundColor;
   document.querySelector(".fa-solid").style.color = originalFaSolidColor;
-  document.querySelector(".degree").style.backgroundColor =
-    originalDegreeBackgroundColor;
-  document.querySelector(".degree").style.color = originalDegreeColor;
-  document.querySelector(".weather-app-data").style.backgroundColor =
-    originalWeatherAppDataColor;
-  document.querySelector(".weather-forecast-date").style.color =
-    originalWeatherForecastDateColor;
 }
 
 // Adding event listener to the button for changing colors
