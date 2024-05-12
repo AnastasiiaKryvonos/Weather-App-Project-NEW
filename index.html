@@ -12,6 +12,10 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e6518f3f6e.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Weather App</title>
   </head>
   <body>
@@ -26,6 +30,9 @@
             class="search-form-input"
           />
           <input type="submit" value="Search" class="search-form-button" />
+          <span class="weather-settings">
+            <button class="fa-solid fa-moon"></button
+          ></span>
         </form>
       </header>
       <main>
@@ -39,12 +46,14 @@
             </p>
           </div>
           <div class="weather-app-temp">
-            <div id="icon"></div>
+            <div class="weather-app-icon" id="icon"></div>
             <div class="weather-app-value" id="temperature">12</div>
             <div class="weather-app-unit">°C</div>
           </div>
         </div>
-        <div class="weather-forecast" id="forecast"></div>
+        <container class="forecast">
+          <div class="weather-forecast" id="forecast"></div>
+        </container>
       </main>
       <footer>
         Coded by

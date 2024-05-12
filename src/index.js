@@ -15,6 +15,7 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
+
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"/>`;
 
   getForecast(response.data.city);
@@ -103,3 +104,115 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Paris");
+
+// Define variables to store original colors
+let originalBodyColor;
+let originalWeatherAppColor;
+let originalSearchFormInputColor;
+let originalSearchFormButtonBackgroundColor;
+let originalSearchFormButtonColor;
+let originalFaSolidBackgroundColor;
+let originalFaSolidColor;
+let originalDegreeBackgroundColor;
+let originalDegreeColor;
+let originalWeatherAppDataColor;
+let originalWeatherForecastDateColor;
+
+// Function to store original colors
+function storeOriginalColors() {
+  originalBodyColor = document.body.style.background;
+  originalWeatherAppColor =
+    document.querySelector(".weatherApp").style.backgroundColor;
+  originalSearchFormInputColor =
+    document.querySelector(".search-form-input").style.backgroundColor;
+  originalSearchFormButtonBackgroundColor = document.querySelector(
+    ".search-form-button"
+  ).style.backgroundColor;
+  originalSearchFormButtonColor = document.querySelector(".search-form-button")
+    .style.color;
+  document.querySelector(".weather-settings").style.backgroundColor;
+  originalFaSolidBackgroundColor =
+    document.querySelector(".fa-solid").style.backgroundColor;
+  originalFaSolidColor = document.querySelector(".fa-solid").style.color;
+  originalDegreeBackgroundColor =
+    document.querySelector(".degree").style.backgroundColor;
+  originalDegreeColor = document.querySelector(".degree").style.color;
+  originalWeatherAppDataColor =
+    document.querySelector(".weather-app-data").style.backgroundColor;
+  originalWeatherForecastDateColor = document.querySelector(
+    ".weather-forecast-date"
+  ).style.color;
+}
+
+// Function to change colors
+function changeColors() {
+  // Define new colors
+  const newBodyColor = "#323643";
+  const newWeatherAppColor = "#606470";
+  const newSearchFormInputColor = "#323643";
+  const newSearchFormButtonBackgroundColor = "#EAEAEA";
+  const newSearchFormButtonColor = "#606470";
+  const newFaSolidBackgroundColor = "#EAEAEA";
+  const newFaSolidColor = "#606470";
+  const newDegreeBackgroundColor = "#EAEAEA";
+  const newDegreeColor = "#606470";
+  const newWeatherAppDataColor = "#323643";
+  const newWeatherForecastDateColor = "#EAEAEA";
+
+  // Apply new colors to elements
+  document.body.style.background = newBodyColor;
+  document.querySelector(".weatherApp").style.backgroundColor =
+    newWeatherAppColor;
+  document.querySelector(".search-form-input").style.backgroundColor =
+    newSearchFormInputColor;
+  document.querySelector(".search-form-button").style.backgroundColor =
+    newSearchFormButtonBackgroundColor;
+  document.querySelector(".search-form-button").style.color =
+    newSearchFormButtonColor;
+  document.querySelector(".fa-solid").style.backgroundColor =
+    newFaSolidBackgroundColor;
+  document.querySelector(".fa-solid").style.color = newFaSolidColor;
+  document.querySelector(".degree").style.backgroundColor =
+    newDegreeBackgroundColor;
+  document.querySelector(".degree").style.color = newDegreeColor;
+  document.querySelector(".weather-app-data").style.backgroundColor =
+    newWeatherAppDataColor;
+  document.querySelector(".forecast").style.color = newWeatherForecastDateColor;
+}
+
+// Function to revert back to original colors
+function revertColors() {
+  document.body.style.background = originalBodyColor;
+  document.querySelector(".weatherApp").style.backgroundColor =
+    originalWeatherAppColor;
+  document.querySelector(".search-form-input").style.backgroundColor =
+    originalSearchFormInputColor;
+  document.querySelector(".search-form-button").style.backgroundColor =
+    originalSearchFormButtonBackgroundColor;
+  document.querySelector(".search-form-button").style.color =
+    originalSearchFormButtonColor;
+  document.querySelector(".fa-solid").style.backgroundColor =
+    originalFaSolidBackgroundColor;
+  document.querySelector(".fa-solid").style.color = originalFaSolidColor;
+  document.querySelector(".degree").style.backgroundColor =
+    originalDegreeBackgroundColor;
+  document.querySelector(".degree").style.color = originalDegreeColor;
+  document.querySelector(".weather-app-data").style.backgroundColor =
+    originalWeatherAppDataColor;
+  document.querySelector(".weather-forecast-date").style.color =
+    originalWeatherForecastDateColor;
+}
+
+// Adding event listener to the button for changing colors
+document.querySelector(".fa-solid").addEventListener("click", function () {
+  if (document.body.style.background === originalBodyColor) {
+    changeColors();
+  } else {
+    revertColors();
+  }
+});
+
+// Store original colors when the page loads
+window.addEventListener("load", function () {
+  storeOriginalColors();
+});
